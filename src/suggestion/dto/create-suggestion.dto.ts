@@ -1,4 +1,5 @@
 import { IsNotEmpty, IsString } from 'class-validator';
+import { FindOperator } from 'typeorm';
 
 export class CreateSuggestionDto {
   @IsNotEmpty()
@@ -12,4 +13,6 @@ export class CreateSuggestionDto {
   @IsNotEmpty()
   @IsString()
   category: string;
+  id: number | FindOperator<number>;
+  votes: number;
 }

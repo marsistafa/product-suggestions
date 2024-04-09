@@ -8,7 +8,8 @@ import { SuggestionController } from './suggestion/suggestion.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Suggestion } from './entity/suggestion.entity';
 import { SuggestionService } from './suggestion/suggestion.service';
-import config from "./ormconfig"
+import config from "./ormconfig";
+
 
 
 @Module({
@@ -16,7 +17,7 @@ import config from "./ormconfig"
     TypeOrmModule.forRoot(config),
     TypeOrmModule.forFeature([Suggestion]),
   ],
-  controllers: [AppController,ProductController, SuggestionController],
-  providers: [AppService,ProductService,SuggestionService],
+  controllers: [AppController,  ProductController, SuggestionController],
+  providers: [AppService, ProductService, SuggestionService],
 })
 export class AppModule {}
