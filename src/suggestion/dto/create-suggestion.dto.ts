@@ -15,4 +15,5 @@ export class CreateSuggestionDto {
   category: string;
   id: number | FindOperator<number>;
   votes: number;
+  isPrivate: boolean;
 }

@@ -23,6 +23,7 @@ export class SuggestionService {
     suggestion.title = createSuggestionDto.title;
     suggestion.description = createSuggestionDto.description;
     suggestion.votes = createSuggestionDto.votes;
+    suggestion.isPrivate = createSuggestionDto.isPrivate;
   
     return await this.suggestionRepository.save(suggestion);
   }
@@ -33,7 +34,14 @@ export class SuggestionService {
   ) {}
 
   async getAllSuggestions(): Promise<Suggestion[]> {
-    return this.suggestionRepository.find();
+    return this.suggestionRepository.find(
+      {
+        where: {
+            isPrivate: false,
+        }
+
+      }
+    );
   }
   
   async createSuggestion(createSuggestionDto: CreateSuggestionDto): Promise<Suggestion> {
@@ -41,6 +49,7 @@ export class SuggestionService {
     suggestion.title = createSuggestionDto.title;
     suggestion.description = createSuggestionDto.description;
     suggestion.category = createSuggestionDto.category;
+    suggestion.isPrivate = createSuggestionDto.isPrivate;
 
     return this.suggestionRepository.save(suggestion);
   }

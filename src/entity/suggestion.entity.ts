@@ -5,7 +5,7 @@ export class Suggestion {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ default : 'TITLE'})
   title: string;
 
   @Column()
@@ -16,4 +16,7 @@ export class Suggestion {
 
   @Column({ default: 0 })
   votes: number;
+
+  @Column({ default: false})
+  isPrivate: boolean;
 }
